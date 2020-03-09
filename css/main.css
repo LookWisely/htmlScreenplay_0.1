@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro:400,400i,700,700i&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+
+/* font-family: 'Anonymous Pro', monospace; */
+/* font-family: 'Fredericka the Great', cursive; */
+/* font-family: 'Josefin Slab', serif; */
+/* font-family: 'Anton', sans-serif; */
+
+:root {
+    --the-strip-width: 35em;
+    --font-size-coeficient: 1;
+}
+
+img {
+    display: block;
+    width : var(--the-strip-width);
+
+    max-width: 200%;
+    
+}
+
+.the-strip {
+    box-sizing: content-box;
+    margin: 0 auto;
+    padding : 0 3em 0 3em;
+    width : var(--the-strip-width);
+    
+}
+
+.scene {
+
+    margin : 2em 0 0 0;
+    
+    font-family: 'Anonymous Pro', monospace;    
+    text-align: justify;
+}
+
+.dialogue {
+    font-family: 'Anonymous Pro', monospace;
+    text-align: justify;
+    
+    margin : 0 auto;
+    width : 70%;
+}
+
+.subtext {
+    font-family: 'Anonymous Pro', monospace;
+    text-align: justify;
+    
+    margin : 0 auto;
+    width : 70%;
+
+    font-size: 0.7em;
+    font-style: italic;
+}
+
+.character {
+    font-family: 'Anonymous Pro', monospace;
+
+    text-align: center;
+    font-size: 1em;
+    font-weight : 700;
+    color : #444444;
+    text-shadow: 0.05em 0.05em rgba(4,0,0,0.4);
+    margin : 2.5em 0 1em 0;
+}
+
+.chapter {
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
+    font-size : 2em;
+
+    margin : 1em 0 1em 0;
+}
+
+.scene-name {
+    text-align : left;
+    font-family: 'Anonymous Pro', monospace;
+    font-size : 1em;
+    text-decoration: underline;
+    font-weight : 700;
+    color : #444444;
+    text-shadow: 0.05em 0.05em rgba(0,0,0,0.4);
+    
+}
+
+.transin {
+    text-align : left;
+    font-family: 'Anonymous Pro', monospace;
+    font-size : 1em;
+    text-decoration: underline;
+    font-weight : 700;
+    color : #444444;
+    text-shadow: 0.05em 0.05em rgba(0,0,0,0.4);
+}
+
+.draft {
+    color : #999999;
+    margin : 2em 0 2em 0;
+    
+    font-family: 'Anonymous Pro', monospace;    
+    font-style: italic;
+    text-align: justify;
+}
+
+.sharp-sound-effect {
+
+    height : 1.1em;
+    font-family: 'Anton', sans-serif;
+    background-color: black;
+    -webkit-text-stroke: 0.02em white;
+    color: black;
+    overflow: hidden;
+
+    text-align: center;
+
+    padding-top: 0.07em;
+    line-height: 1.1em;
+}
+
+
+
+
+
+
+
+.parallax-picture {
+    width : auto;
+
+    /*background-color: rgba(0,0,0,0.4);*/
+}
+
+.parallax-layer {
+    width : var(--the-strip-width);
+    height: inherit;
+
+    background-color: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: absolute;
+
+    background-size: var(--the-strip-width) auto;
+}
+
+
+
+
+
+
+.parallax-foreground {
+    position: absolute;
+    background-size: cover;
+    overflow: hidden;
+    font-family: 'Fredericka the Great';
+    color : white;
+    text-shadow: black 0.03em 0.03em;
+    width : var(--the-strip-width);
+}
+
+@media screen and (max-width: 30em) {
+
+    :root {
+        --the-strip-width: 25em;
+        --font-size-coeficient: 0.5;
+    }
+
+    .the-strip {
+        font-size : 2em;
+        width : 25em;
+    }
+}

@@ -1,0 +1,77 @@
+:root {
+    --poster-image-width: 14em;
+    --poster-subtext-font-size-proportion: 0.4;
+}
+
+.the-strip a {
+    text-decoration: none;
+}
+
+.poster-margin {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.poster-container {
+    display: inline-block;
+    width: 17em;
+    height : 26em;
+
+    overflow: hidden;
+}
+
+.poster {
+
+    margin: 0.5em 0 0 0.5em;
+
+    background-color: #999999;
+    
+    width: 16em;    
+    height: 25em;
+
+    overflow: hidden;
+}
+
+.poster-image {
+    
+    margin: 1em 0 0 1em;
+
+    height: 23em;
+    width: 14em;
+    background-color: black;
+
+    overflow: hidden;
+}
+
+.poster-title {
+    position : absolute;
+}
+
+.poster-subtext {
+
+    position: absolute;
+
+    width : calc(var(--poster-image-width) / var(--poster-subtext-font-size-proportion));
+
+    box-sizing: border-box;
+    padding : 0 1em 0 1em;
+
+    font-size: calc(var(--poster-subtext-font-size-proportion) * 1em);
+    color: white;
+    font-family: sans-serif;
+    text-align: justify;
+}
+
+.long-war-title {
+    color : white;
+    font-size : 2.4em;
+}
+
+.thesis-title {
+    color: white;
+    font-family: Anonymous Pro, cursive;
+}
+
+.thesis-subtext {
+    width : 21em;
+}

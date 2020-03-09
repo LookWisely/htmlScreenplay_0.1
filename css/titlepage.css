@@ -1,0 +1,44 @@
+.pretitle {
+    margin : 4em 0 7em 0;
+}
+
+.pretitle ul {
+    font-family: 'Anonymous Pro', monospace;
+}
+
+.posttitle {
+    font-family: 'Anonymous Pro', monospace;
+
+    margin : 7em 0 2em 0;
+}
+
+.posttitle ul {
+    text-align : right;
+}
+
+.title {
+
+    text-align: center;
+    font-family: 'Fredericka the Great';
+    font-weight: 200;
+    font-size : 4em;
+
+    margin : 0 0 0 0;
+}
+
+.author {
+    font-family: 'Anonymous Pro', monospace;
+    text-align: center;
+
+    margin : 1em 0 3em; 0;
+}
+
+
+.end-credit {
+    margin : 5em 0 5em 0;
+
+    text-align: center;
+    font-family: 'Fredericka the Great';
+    font-weight: 200;
+    font-size : 4em;
+}
