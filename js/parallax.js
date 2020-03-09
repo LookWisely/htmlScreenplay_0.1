@@ -58,3 +58,9 @@ document.addEventListener(`scroll`, event => {
     adjustParallaxPositions();
     
 });
+
+
+
+// optimized functionality - TODO. 
+// main concern for optimization - exclude any declarations from scroll loops
+// add window `resize` eventListener to update window dimensions dependencies
