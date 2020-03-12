@@ -36,12 +36,8 @@ function adjustParallaxPositionsAdvanced() {
 
     for (const singleLayer of listOfAllLayers) {
         let adjustmentValue = -1 * parseFloat(singleLayer.speed) * (getYPosition(singleLayer.layer) - currentOffset + (singleLayer.layer.scrollHeight / 2));
-//        console.log(singleLayer.layer);
         adjustmentValue += singleLayer.startingY;
-       console.log(singleLayer.layer.style.backgroundImage);
-       console.log(adjustmentValue);
         singleLayer.layer.style.backgroundPositionY = `${adjustmentValue}px`;
-       console.log(singleLayer.layer.style.backgroundPositionY);
     }
 }
 
@@ -57,18 +53,14 @@ function getYPosition(element) {
 
 
 initializeParallaxes();
-console.log(`==========================`);
+console.log(`=====discrovered layers for parllax processing======`);
 console.log(listOfAllLayers);
-console.log(`==========================`);
+console.log(`====================================================`);
 adjustParallaxPositionsAdvanced();
 
 // Initialization of the scroll event listener
-document.addEventListener(`scroll`, event => {
-
-    adjustParallaxPositionsAdvanced();
-    
-});
-
+document.addEventListener(`scroll`, event => adjustParallaxPositionsAdvanced());
+window.addEventListener(`resize`, event => adjustParallaxPositionsAdvanced());
 
 
 // optimized functionality - TODO. 
