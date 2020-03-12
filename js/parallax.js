@@ -59,18 +59,5 @@ console.log(`====================================================`);
 adjustParallaxPositionsAdvanced();
 
 // Initialization of the scroll event listener
-<<<<<<< HEAD
 document.addEventListener(`scroll`, event => adjustParallaxPositionsAdvanced());
 window.addEventListener(`resize`, event => adjustParallaxPositionsAdvanced());
-
-
-// optimized functionality - TODO. 
-// main concern for optimization - exclude any declarations from scroll loops
-// add window `resize` eventListener to update window dimensions dependencies
-=======
-document.addEventListener(`scroll`, event => {
-
-    adjustParallaxPositionsAdvanced();
-    
-});
->>>>>>> 6baa669078ac6e0efb1f9292b24e2e83a50ed2c9
