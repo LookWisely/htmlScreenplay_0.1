@@ -1,6 +1,17 @@
-let $screenHeight = 0;
-let currentWindowOffset = 0;
-let currentWindowOffsetNormalized = 0;
+let listOfAllLayers = new Array();
+
+class parallaxLayerInstance {
+    layer;
+    startingY;
+
+    constructor(ele, vertAdjustment) {
+        this.layer = ele;
+        this.startingY = vertAdjustment;
+    }
+
+
+}
+
 
 let allParallaxImages = document.querySelectorAll(`.parallax-picture`);
 
@@ -9,6 +20,8 @@ function initializeParallaxes() {
         let innerLayers = singleImage.querySelectorAll(`.parallax-layer`);
         for (const singleLayer of innerLayers) {
             singleLayer.style.backgroundPositionY = singleLayer.dataset.verticalstart;
+            let classInstance = new parallaxLayerInstance(singleImage, parseFloat(singleImage.dataset.verticalstart));
+            listOfAllLayers.push(classInstance);
         }
         
     }
@@ -16,8 +29,6 @@ function initializeParallaxes() {
 
 
 function adjustParallaxPositions() {
-
-    // font-size calculation --- could be optimized
 
     let currentOffset = window.scrollY + window.innerHeight / 2;
 
@@ -36,6 +47,22 @@ function adjustParallaxPositions() {
     // MAIN TODO
 }
 
+function adjustParallaxPositionsAdvanced() {
+
+    let currentOffset = window.scrollY + window.innerHeight / 2;
+    // consider VERTICALSTART
+    let verticalStartAdjustment = parseFloat(singleImage.dataset.verticalstart);
+
+    for (const singleLayer of listOfAllLayers) {
+        console.log(singleLayer.style.backgroundImage);
+        let adjustmentValue = -1 * parseFloat(singleLayer.dataset.speed) * (getYPosition(singleLayer) - currentOffset + (singleLayer.scrollHeight / 2));
+        adjustmentValue += verticalStartAdjustment;
+        console.log(adjustmentValue);
+        singleLayer.style.backgroundPositionY = `${adjustmentValue}px`;
+        console.log(singleLayer.style.backgroundPositionY);
+    }
+}
+
 function getYPosition(element) {
     let yPosition = 0;
     while(element) {
@@ -48,6 +75,9 @@ function getYPosition(element) {
 
 
 initializeParallaxes();
+console.log(`==========================`);
+console.log(listOfAllLayers);
+console.log(`==========================`);
 adjustParallaxPositions();
 
 // Initialization of the scroll event listener
