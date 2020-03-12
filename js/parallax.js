@@ -2,10 +2,12 @@ let listOfAllLayers = new Array();
 
 class parallaxLayerInstance {
     layer;
+    speed;
     startingY;
 
-    constructor(ele, vertAdjustment) {
+    constructor(ele, s, vertAdjustment) {
         this.layer = ele;
+        this.speed = s;
         this.startingY = vertAdjustment;
     }
 
@@ -20,7 +22,7 @@ function initializeParallaxes() {
         let innerLayers = singleImage.querySelectorAll(`.parallax-layer`);
         for (const singleLayer of innerLayers) {
             singleLayer.style.backgroundPositionY = singleLayer.dataset.verticalstart;
-            let classInstance = new parallaxLayerInstance(singleImage, parseFloat(singleImage.dataset.verticalstart));
+            let classInstance = new parallaxLayerInstance(singleLayer, parseFloat(singleLayer.dataset.speed), parseFloat(singleImage.dataset.verticalstart));
             listOfAllLayers.push(classInstance);
         }
         
@@ -28,38 +30,18 @@ function initializeParallaxes() {
 }
 
 
-function adjustParallaxPositions() {
-
-    let currentOffset = window.scrollY + window.innerHeight / 2;
-
-    for (const singleImage of allParallaxImages) {
-        let parallaxLayers = singleImage.querySelectorAll(`.parallax-layer`);
-        let verticalStartAdjustment = parseFloat(singleImage.dataset.verticalstart);
-        for (const singleLayer of parallaxLayers) {
-            console.log(singleLayer.style.backgroundImage);
-            let adjustmentValue = -1 * parseFloat(singleLayer.dataset.speed) * (getYPosition(singleLayer) - currentOffset + (singleLayer.scrollHeight / 2));
-            adjustmentValue += verticalStartAdjustment;
-            console.log(adjustmentValue);
-            singleLayer.style.backgroundPositionY = `${adjustmentValue}px`;
-            console.log(singleLayer.style.backgroundPositionY);
-        }
-    }
-    // MAIN TODO
-}
-
 function adjustParallaxPositionsAdvanced() {
 
     let currentOffset = window.scrollY + window.innerHeight / 2;
-    // consider VERTICALSTART
-    let verticalStartAdjustment = parseFloat(singleImage.dataset.verticalstart);
 
     for (const singleLayer of listOfAllLayers) {
-        console.log(singleLayer.style.backgroundImage);
-        let adjustmentValue = -1 * parseFloat(singleLayer.dataset.speed) * (getYPosition(singleLayer) - currentOffset + (singleLayer.scrollHeight / 2));
-        adjustmentValue += verticalStartAdjustment;
-        console.log(adjustmentValue);
-        singleLayer.style.backgroundPositionY = `${adjustmentValue}px`;
-        console.log(singleLayer.style.backgroundPositionY);
+        let adjustmentValue = -1 * parseFloat(singleLayer.speed) * (getYPosition(singleLayer.layer) - currentOffset + (singleLayer.layer.scrollHeight / 2));
+//        console.log(singleLayer.layer);
+        adjustmentValue += singleLayer.startingY;
+       console.log(singleLayer.layer.style.backgroundImage);
+       console.log(adjustmentValue);
+        singleLayer.layer.style.backgroundPositionY = `${adjustmentValue}px`;
+       console.log(singleLayer.layer.style.backgroundPositionY);
     }
 }
 
@@ -78,14 +60,12 @@ initializeParallaxes();
 console.log(`==========================`);
 console.log(listOfAllLayers);
 console.log(`==========================`);
-adjustParallaxPositions();
+adjustParallaxPositionsAdvanced();
 
 // Initialization of the scroll event listener
 document.addEventListener(`scroll`, event => {
 
-    console.log(event);
-
-    adjustParallaxPositions();
+    adjustParallaxPositionsAdvanced();
     
 });
 
