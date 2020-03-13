@@ -121,7 +121,29 @@ img {
 }
 
 
+.monotone-sound-effect-wrapper {
+    height: 1.1em;
+    width: 25em;
+    overflow: hidden;
+}
 
+.monotone-sound-effect {
+
+    width: 100%;
+
+    position: relative;
+
+    height: 1.1em;
+    font-family: 'Anonymous Pro', monospace;
+    color: #777777;
+    
+    padding-top: 0.07em;
+    line-height: 1.1em;
+
+    width: 25em;
+    overflow: hidden;
+
+}
 
 
 
