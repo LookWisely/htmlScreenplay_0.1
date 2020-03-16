@@ -151,10 +151,13 @@ img {
 .parallax-picture {
     width : auto;
 
-    /*background-color: rgba(0,0,0,0.4);*/
+    background-color: black;
 }
 
 .parallax-layer {
+
+    color: white;
+
     width : var(--the-strip-width);
     height: inherit;
 
