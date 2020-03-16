@@ -167,6 +167,12 @@ img {
     background-size: var(--the-strip-width) auto;
 }
 
+.grain {
+    background-image: url('../common-assets/grain-1.gif');
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+}
+
 
 
 
